@@ -3,53 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistem Pembukuan</title>
+    <title>Sistem Pembukuan Keuangan</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Sistem Pembukuan Pembiayaan</h1>
-        <p>Catatan pembukuan yang melibatkan saldo, transaksi, laba, dan selisih.</p>
+        <h1>Sistem Pembukuan Keuangan</h1>
+        <p>Catatan Pembukuan Harian, Bulanan, dan Tahunan</p>
     </header>
 
     <main>
         <section>
-            <table id="bookkeepingTable">
+            <h2>Input Transaksi</h2>
+            
+            <!-- Form untuk input data -->
+            <form id="inputForm">
+                <label for="date">Tanggal:</label>
+                <input type="date" id="date" required>
+
+                <label for="category">Kategori:</label>
+                <input type="text" id="category" required>
+
+                <label for="saldoAwal">Saldo Awal (Rp):</label>
+                <input type="number" id="saldoAwal" required>
+
+                <label for="saldoAkhir">Saldo Akhir (Rp):</label>
+                <input type="number" id="saldoAkhir" required>
+
+                <label for="cash500">Uang 500 (Rp):</label>
+                <input type="number" id="cash500" required>
+
+                <label for="cash1000">Uang 1000 (Rp):</label>
+                <input type="number" id="cash1000" required>
+
+                <label for="cash2000">Uang 2000 (Rp):</label>
+                <input type="number" id="cash2000" required>
+
+                <label for="cash5000">Uang 5000 (Rp):</label>
+                <input type="number" id="cash5000" required>
+
+                <label for="cash10000">Uang 10000 (Rp):</label>
+                <input type="number" id="cash10000" required>
+
+                <label for="cash20000">Uang 20000 (Rp):</label>
+                <input type="number" id="cash20000" required>
+
+                <label for="cash50000">Uang 50000 (Rp):</label>
+                <input type="number" id="cash50000" required>
+
+                <label for="cash100000">Uang 100000 (Rp):</label>
+                <input type="number" id="cash100000" required>
+
+                <label for="rincianPiutang">Rincian Piutang (Rp):</label>
+                <input type="number" id="rincianPiutang" required>
+
+                <label for="bayarPiutang">Bayar Piutang (Rp):</label>
+                <input type="number" id="bayarPiutang" required>
+
+                <label for="saldoQris">Saldo QRIS (Rp):</label>
+                <input type="number" id="saldoQris" required>
+
+                <label for="qrisCair">Saldo QRIS yang Cair (Rp):</label>
+                <input type="number" id="qrisCair" required>
+
+                <button type="submit" id="submitButton">Tambah Transaksi</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Data Pembukuan</h2>
+            <table id="dataTable">
                 <thead>
                     <tr>
+                        <th>Tanggal</th>
                         <th>Kategori</th>
                         <th>Saldo Awal (Rp)</th>
-                        <th>Jumlah Transaksi (Rp)</th>
-                        <th>Uang yang Belum Cair (Rp)</th>
-                        <th>Laba (Rp)</th>
-                        <th>Selisih (Rp)</th>
+                        <th>Saldo Akhir (Rp)</th>
+                        <th>Cash Total (Rp)</th>
+                        <th>Piutang Sisa (Rp)</th>
+                        <th>Saldo QRIS (Rp)</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>PROPANA CIKERANG</td>
-                        <td><input type="number" class="saldo-awal" value="1596346"></td>
-                        <td><input type="number" class="jumlah-transaksi" value="280000"></td>
-                        <td><input type="number" class="uang-belum-cair" value="400000"></td>
-                        <td class="laba">0</td>
-                        <td class="selisih">0</td>
-                    </tr>
-                    <tr>
-                        <td>DANA CIKERANG</td>
-                        <td><input type="number" class="saldo-awal" value="64343"></td>
-                        <td><input type="number" class="jumlah-transaksi" value="320000"></td>
-                        <td><input type="number" class="uang-belum-cair" value="193000"></td>
-                        <td class="laba">0</td>
-                        <td class="selisih">0</td>
-                    </tr>
-                    <!-- Tambahkan baris lebih lanjut jika diperlukan -->
+                    <!-- Data transaksi akan ditambahkan di sini -->
                 </tbody>
             </table>
         </section>
 
-        <footer>
-            <button id="calculateButton">Hitung Laba dan Selisih</button>
-        </footer>
+        <section>
+            <h2>Grafik Peningkatan Saldo</h2>
+            <canvas id="grafikSaldo"></canvas>
+        </section>
     </main>
 
     <script src="script.js"></script>
