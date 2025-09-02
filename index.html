@@ -15,8 +15,6 @@
     <main>
         <section>
             <h2>Input Transaksi</h2>
-            
-            <!-- Form untuk input data utama -->
             <form id="inputForm">
                 <label for="date">Tanggal:</label>
                 <input type="date" id="date" required>
@@ -25,10 +23,10 @@
                 <input type="text" id="category" required>
 
                 <label for="saldoAwal">Saldo Awal (Rp):</label>
-                <input type="number" id="saldoAwal" required>
+                <input type="text" id="saldoAwal" class="currency-input" required>
 
                 <label for="saldoAkhir">Saldo Akhir (Rp):</label>
-                <input type="number" id="saldoAkhir" required>
+                <input type="text" id="saldoAkhir" class="currency-input" required>
 
                 <label for="rincianPiutang">Rincian Piutang (Rp):</label>
                 <input type="number" id="rincianPiutang" required>
