@@ -1,3 +1,26 @@
+// Fungsi untuk menambahkan format angka dengan titik (pemisah ribuan)
+function formatCurrency(value) {
+    // Menghapus karakter selain angka dan titik
+    let formattedValue = value.replace(/[^\d]/g, "");
+    // Menambahkan pemisah ribuan menggunakan regex
+    formattedValue = formattedValue.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    return formattedValue;
+}
+
+// Fungsi untuk menangani input angka dengan format pemisah ribuan
+function handleInputFormat(event) {
+    let input = event.target;
+    let value = input.value;
+
+    // Mengonversi input menjadi format angka dengan titik sebagai pemisah ribuan
+    input.value = formatCurrency(value);
+}
+
+// Menambahkan event listener untuk menangani perubahan input pada field dengan class 'currency-input'
+document.querySelectorAll(".currency-input").forEach(inputField => {
+    inputField.addEventListener("input", handleInputFormat);
+});
+
 // Fungsi untuk menghitung total uang cash
 document.getElementById("calculateCashButton").addEventListener("click", function() {
     // Ambil nilai dari input uang cash
@@ -21,11 +44,11 @@ document.getElementById("calculateCashButton").addEventListener("click", functio
 document.getElementById("submitButton").addEventListener("click", function(event) {
     event.preventDefault();
     
-    // Ambil data dari form transaksi utama
+    // Ambil nilai dari form transaksi utama
     let date = document.getElementById("date").value;
     let category = document.getElementById("category").value;
-    let saldoAwal = parseFloat(document.getElementById("saldoAwal").value);
-    let saldoAkhir = parseFloat(document.getElementById("saldoAkhir").value);
+    let saldoAwal = parseFloat(document.getElementById("saldoAwal").value.replace(/\./g, ''));
+    let saldoAkhir = parseFloat(document.getElementById("saldoAkhir").value.replace(/\./g, ''));
     let rincianPiutang = parseFloat(document.getElementById("rincianPiutang").value);
     let bayarPiutang = parseFloat(document.getElementById("bayarPiutang").value);
     let saldoQris = parseFloat(document.getElementById("saldoQris").value);
@@ -40,10 +63,10 @@ document.getElementById("submitButton").addEventListener("click", function(event
     row.innerHTML = `
         <td>${date}</td>
         <td>${category}</td>
-        <td>${saldoAwal}</td>
-        <td>${saldoAkhir}</td>
-        <td>${sisaPiutang}</td>
-        <td>${saldoQris - qrisCair}</td>
+        <td>${saldoAwal.toLocaleString()}</td>
+        <td>${saldoAkhir.toLocaleString()}</td>
+        <td>${sisaPiutang.toLocaleString()}</td>
+        <td>${(saldoQris - qrisCair).toLocaleString()}</td>
     `;
 
     // Reset form setelah menambah data
