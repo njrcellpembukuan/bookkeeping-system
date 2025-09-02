@@ -43,7 +43,7 @@ document.getElementById("calculateCashButton").addEventListener("click", functio
 // Fungsi untuk menambah transaksi ke tabel
 document.getElementById("submitButton").addEventListener("click", function(event) {
     event.preventDefault();
-    
+
     // Ambil nilai dari form transaksi utama
     let date = document.getElementById("date").value;
     let category = document.getElementById("category").value;
