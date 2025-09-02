@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Pembukuan</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Sistem Pembukuan Pembiayaan</h1>
+        <p>Catatan pembukuan yang melibatkan saldo, transaksi, laba, dan selisih.</p>
+    </header>
+
+    <main>
+        <section>
+            <table id="bookkeepingTable">
+                <thead>
+                    <tr>
+                        <th>Kategori</th>
+                        <th>Saldo Awal (Rp)</th>
+                        <th>Jumlah Transaksi (Rp)</th>
+                        <th>Uang yang Belum Cair (Rp)</th>
+                        <th>Laba (Rp)</th>
+                        <th>Selisih (Rp)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>PROPANA CIKERANG</td>
+                        <td><input type="number" class="saldo-awal" value="1596346"></td>
+                        <td><input type="number" class="jumlah-transaksi" value="280000"></td>
+                        <td><input type="number" class="uang-belum-cair" value="400000"></td>
+                        <td class="laba">0</td>
+                        <td class="selisih">0</td>
+                    </tr>
+                    <tr>
+                        <td>DANA CIKERANG</td>
+                        <td><input type="number" class="saldo-awal" value="64343"></td>
+                        <td><input type="number" class="jumlah-transaksi" value="320000"></td>
+                        <td><input type="number" class="uang-belum-cair" value="193000"></td>
+                        <td class="laba">0</td>
+                        <td class="selisih">0</td>
+                    </tr>
+                    <!-- Tambahkan baris lebih lanjut jika diperlukan -->
+                </tbody>
+            </table>
+        </section>
+
+        <footer>
+            <button id="calculateButton">Hitung Laba dan Selisih</button>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
